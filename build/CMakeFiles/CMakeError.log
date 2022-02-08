@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_126bd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_126bd.dir/build.make CMakeFiles/cmTC_126bd.dir/build
+make[1]: Entering directory '/home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_126bd.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -std=gnu++14 -o CMakeFiles/cmTC_126bd.dir/CheckSymbolExists.cxx.o -c /home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_126bd
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_126bd.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_126bd.dir/CheckSymbolExists.cxx.o  -o cmTC_126bd 
+CMakeFiles/cmTC_126bd.dir/CheckSymbolExists.cxx.o: In function `main':
+CheckSymbolExists.cxx:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_126bd.dir/build.make:86: recipe for target 'cmTC_126bd' failed
+make[1]: *** [cmTC_126bd] Error 1
+make[1]: Leaving directory '/home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_126bd/fast' failed
+make: *** [cmTC_126bd/fast] Error 2
+
+File /home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7b854/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7b854.dir/build.make CMakeFiles/cmTC_7b854.dir/build
+make[1]: Entering directory '/home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7b854.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -std=gnu++14 -o CMakeFiles/cmTC_7b854.dir/CheckFunctionExists.cxx.o -c /home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_7b854
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7b854.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_7b854.dir/CheckFunctionExists.cxx.o  -o cmTC_7b854 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_7b854.dir/build.make:86: recipe for target 'cmTC_7b854' failed
+make[1]: *** [cmTC_7b854] Error 1
+make[1]: Leaving directory '/home/xlsun/deploy_code/siam-trackers/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_7b854/fast' failed
+make: *** [cmTC_7b854/fast] Error 2
+
+

@@ -47,7 +47,8 @@ int main(int argc, char **argv) {
     tracker_siam_rpnpp.load_networks_instantly();
 
     // Start with SiamMask
-    Tracker* tracker = &tracker_siam_mask;
+    // Tracker* tracker = &tracker_siam_mask;
+    Tracker* tracker = &tracker_siam_rpnpp;
 
     // Load video
     std::string src = argc > 1 ? argv[1] : "bag.avi";
@@ -99,11 +100,14 @@ int main(int argc, char **argv) {
             if (k == 'm') {
                 cv::Rect prev_bbox = tracker->get_bounding_box();
                 tracker->stop_tracking();
+                // tracker = &tracker_siam_mask;
+                // tracker = &tracker_siam_rpnpp;
+
                 if (tracker == &tracker_siam_mask) {
-                    tracker = &tracker_siam_rpnpp;
+                    tracker = &tracker_siam_mask;
                 }
                 else {
-                    tracker = &tracker_siam_mask;
+                    tracker = &tracker_siam_rpnpp;
                 }
                 tracker->init(frame_original, prev_bbox);
             }
